@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>登录</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a class="logo" href="index.html">Dio's mikumiku</a>
+    <div class="nav-links" id="nav-links"><!-- JS 按登录态渲染 --></div>
+  </nav>
+
+  <main>
+    <div class="card">
+      <h1>欢迎回来</h1>
+      <p class="subtitle">请登录你的账号</p>
+
+      <div class="message" id="message"></div>
+
+      <form id="login-form">
+        <div class="form-group">
+          <label for="username">用户名</label>
+          <input type="text" id="username" name="username" autocomplete="username" required />
+        </div>
+        <div class="form-group">
+          <label for="password">密码</label>
+          <input type="password" id="password" name="password" autocomplete="current-password" required />
+        </div>
+        <div class="form-group remember-group">
+          <label class="checkbox">
+            <input type="checkbox" id="remember" name="remember" />
+            记住我（30 天内免登录）
+          </label>
+        </div>
+        <button type="submit" class="btn" id="submit-btn">登录</button>
+      </form>
+
+      <p class="switch-link">还没有账号？<a href="register.html">立即注册</a></p>
+    </div>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

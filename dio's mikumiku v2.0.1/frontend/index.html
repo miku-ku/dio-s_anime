@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>动漫搜索</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a class="logo" href="index.html">Dio's mikumiku</a>
+    <div class="nav-links" id="nav-links"><!-- JS 渲染 --></div>
+  </nav>
+
+  <main class="search-main">
+    <div class="search-wrap">
+      <!-- 搜索栏 -->
+      <form class="search-bar card" id="search-form">
+        <input type="text" id="keyword" class="search-input"
+               placeholder="搜索番剧，如：芙莉莲 / Frieren / SPY FAMILY…" autocomplete="off" />
+        <!-- 资源类型筛选：type 是资源级属性，选中后自动切换为资源直搜模式 -->
+        <select id="res-type" class="type-select" title="按资源类型筛选">
+          <option value="">全部类型</option>
+          <option value="动画">动画</option>
+          <option value="合集">合集</option>
+          <option value="特摄">特摄</option>
+          <option value="漫画">漫画</option>
+          <option value="音乐">音乐</option>
+          <option value="游戏">游戏</option>
+        </select>
+        <button type="submit" class="btn search-btn" id="search-btn">搜索</button>
+      </form>
+
+      <div class="search-status" id="search-status"></div>
+
+      <!-- 番剧卡片网格 -->
+      <div class="anime-grid" id="anime-grid"></div>
+
+      <!-- AniList 无结果时的资源直搜兜底 -->
+      <div class="result-list" id="fallback-list" style="display:none"></div>
+
+      <!-- 分页（番剧卡片） -->
+      <div class="pagination" id="pagination" style="display:none">
+        <button class="btn btn-secondary page-btn" id="prev-btn" type="button">上一页</button>
+        <span class="page-info" id="page-info"></span>
+        <button class="btn btn-secondary page-btn" id="next-btn" type="button">下一页</button>
+      </div>
+    </div>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/search.js"></script>
+</body>
+</html>

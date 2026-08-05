@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>番剧资源</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a class="logo" href="index.html">Dio's mikumiku</a>
+    <div class="nav-links" id="nav-links"><!-- JS 渲染 --></div>
+  </nav>
+
+  <main class="search-main">
+    <div class="detail-wrap">
+      <a href="index.html" class="back-link">← 返回搜索</a>
+
+      <!-- 番剧信息头 -->
+      <div class="anime-header card" id="anime-header" style="display:none">
+        <div class="cover-wrap header-cover" id="header-cover"></div>
+        <div class="header-info">
+          <h1 class="header-title" id="header-title">…</h1>
+          <div class="header-sub" id="header-sub"></div>
+          <div class="header-native" id="header-native"></div>
+        </div>
+      </div>
+
+      <div class="search-status" id="status"></div>
+
+      <!-- 左：在线播放（选集 + 播放器）；右：磁力资源 -->
+      <div class="detail-layout">
+        <section class="player-col">
+          <div class="section-label">在线播放</div>
+          <div class="card player-card">
+            <!-- referrerpolicy=no-referrer 降低被上游防盗链拒绝的概率；不要加 crossorigin -->
+            <video id="player" controls preload="metadata" playsinline
+                   referrerpolicy="no-referrer" style="display:none"></video>
+            <div class="player-empty" id="player-empty">正在获取播放列表…</div>
+            <div class="player-now" id="player-now"></div>
+            <div class="player-tip" id="player-tip"></div>
+            <div class="ep-label" id="ep-label" style="display:none">选集</div>
+            <div class="ep-grid" id="ep-grid"></div>
+          </div>
+        </section>
+
+        <section class="res-col">
+          <div class="section-label" id="res-label" style="display:none">磁力资源</div>
+          <div class="result-list" id="result-list"></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/util.js"></script>
+  <!-- hls.js：采集源的 m3u8 播放需要（本地文件，约 540KB）；ANi 的 mp4 直链用不到 -->
+  <script src="js/hls.min.js"></script>
+  <script src="js/anime.js"></script>
+</body>
+</html>
